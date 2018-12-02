@@ -1,0 +1,8 @@
+[package]
+name = "imagine"
+version = "0.1.0"
+authors = ["Cole R Lawrence <msgzht@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+generational-arena = "0.1"
