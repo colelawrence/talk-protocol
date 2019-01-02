@@ -1,0 +1,6 @@
+[workspace]
+members = [
+	"imagine",
+	"talk_macros",
+	"talk_macros_impl",
+]

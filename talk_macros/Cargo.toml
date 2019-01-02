@@ -1,0 +1,10 @@
+[package]
+name = "talk_macros"
+version = "0.1.0"
+authors = ["Cole Lawrence <colelawr@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+proc-macro-hack = "0.5"
+talk_macros_impl = { path = "../talk_macros_impl" }
+imagine = { path = "../imagine" }

@@ -1,14 +1,4 @@
-extern crate generational_arena;
-
-mod value;
-pub use self::value::*;
-
-mod rtvm;
-use self::rtvm::*;
-
-mod vm;
-use self::rtvm::RTVM;
-pub use self::vm::VM;
+use imagine::*;
 
 macro_rules! when_wrt {
     ( /$x:ident/, $e:tt ) => {{
@@ -80,7 +70,8 @@ fn test_macro(rt: &RTVM) {
     // });
 }
 
-fn main() {
+#[test]
+fn it_works() {
     println!("Hello, world!");
     //region setup
     let rt = RTVM::default();
