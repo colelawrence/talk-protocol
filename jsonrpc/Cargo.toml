@@ -1,0 +1,8 @@
+[package]
+name = "jsonrpc"
+version = "0.1.0"
+authors = ["Cole Lawrence <colelawr@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+jsonrpc-stdio-server = { git = "https://github.com/paritytech/jsonrpc" }
