@@ -1,2 +1,2 @@
 #!/bin/bash
-RUSTFLAGS=-Awarnings cargo test -- --nocapture
+cargo test -- --nocapture

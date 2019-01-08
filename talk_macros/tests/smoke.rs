@@ -11,7 +11,7 @@ fn rt_works() {
     // talk_macros::test_query();
     talk_macros::when!((
         /page/ blahblahblah,
-        /page/ points "up" at /target/,
+        /page/ points "up" at /target/, // "_ points _ at _", [Cap("page"), Pin("up"), Cap("target")]
         time is /t/,
         /left/ points "right" at (you),
         the temperature is greater than 15.9 "c",

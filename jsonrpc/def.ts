@@ -1,7 +1,11 @@
-/** Ref ties multiple pieces of information together */
+/**
+ * Ref ties multiple pieces of information together
+ * refs might also be used to track when claims have actually been updated
+ */
 type Ref = {
     rid: string,
 }
+/** Create some universally unique symbol */
 type Entity = { id: string }
 
 type NewStmt = {
@@ -11,7 +15,8 @@ type NewStmt = {
 
 type NewQuery = {
     query: string[],
-    vars?: {
+    /** you may use `_ claims (you) points ("up") at /target/` and provide (you) as a definition here. */
+    defs?: {
         [identifier: string]: any,
     },
 }
@@ -39,11 +44,7 @@ interface DB {
     /**
      * wait should be called when the client is ready to accept updates
      * wait does not return immediately
+     * wait might return with match = null, indicating that an update invalidated the match
      */
-    wait(qId: QId, sync: string): { match: NewMatch, sync: string }
-}
-
-interface Client {
-    new(db: DB, you: Ref): void
-    dispose(): void
+    wait(qId: QId, sync: string): { match: NewMatch | null, sync: string }
 }
