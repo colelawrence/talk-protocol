@@ -2,7 +2,7 @@ use generational_arena::{Arena, Index};
 use std::collections::{HashMap, HashSet};
 
 pub use self::query::{Query, QueryPlaceholder, QueryStatement};
-pub use crate::value::{Literal, Value};
+pub use crate::value::Value;
 
 #[derive(Debug, Hash, PartialEq, Eq)]
 pub struct StatementValue(Vec<Value>);
