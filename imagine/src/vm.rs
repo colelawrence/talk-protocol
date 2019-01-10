@@ -12,10 +12,10 @@ pub trait VM {
         value: StatementValue,
     ) -> Self::StatementIndex;
     fn redact_statement(&self, stmt: Self::StatementIndex);
-    fn redact_query(&self, query: Self::QueryIndex);
     fn insert_query(
         &self,
         depends_on: Vec<Self::StatementIndex>,
         query: Query<Self::RelationIndex, Vec<Self::StatementIndex>>,
     ) -> Self::QueryIndex;
+    fn redact_query(&self, query: Self::QueryIndex);
 }

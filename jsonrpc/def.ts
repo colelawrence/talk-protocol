@@ -2,11 +2,9 @@
  * Ref ties multiple pieces of information together
  * refs might also be used to track when claims have actually been updated
  */
-type Ref = {
-    rid: string,
-}
+type Ref = string
 /** Create some universally unique symbol */
-type Entity = { id: string }
+type Entity = string
 
 type NewStmt = {
     template: string,
@@ -37,8 +35,8 @@ type NewMatch = {
 }
 
 interface DB {
-    listen(ref: Ref, query: NewQuery): QId;
     insert(ref: Ref, statement: NewStmt): void;
+    new_query(ref: Ref, query: NewQuery): QId;
     new_entity(ref: Ref): Entity;
 
     /**
@@ -46,5 +44,5 @@ interface DB {
      * wait does not return immediately
      * wait might return with match = null, indicating that an update invalidated the match
      */
-    wait(qId: QId, sync: string): { match: NewMatch | null, sync: string }
+    await(qId: QId, sync?: string): { has_match: boolean, match: NewMatch | null, alive: boolean, sync: string }
 }
