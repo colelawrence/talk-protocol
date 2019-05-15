@@ -1,0 +1,8 @@
+[package]
+name = "talk_database"
+version = "0.1.0"
+authors = ["Cole Lawrence <colelawr@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+generational-arena = "0.1"

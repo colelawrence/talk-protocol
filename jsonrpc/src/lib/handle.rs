@@ -11,6 +11,7 @@ serialize_trait_object!(SerializeDebug);
 #[derive(Serialize, Deserialize, Debug)]
 pub struct RTEntity {
     id: String,
+    note: String,
 }
 
 #[derive(Serialize, Debug)]
@@ -33,7 +34,7 @@ impl NewStatement {
 
 #[derive(Deserialize, Debug)]
 pub struct QueryMatch {
-    values: HashMap<String, String>
+    values: HashMap<String, String>,
 }
 
 impl QueryMatch {
@@ -44,9 +45,9 @@ impl QueryMatch {
     }
 }
 
-pub trait RTVMHandle
+pub trait RTHandle
 where Self: std::marker::Sized {
-    fn new_entity() -> RTEntity;
+    fn new_entity(note: String) -> RTEntity;
     fn listen(query: NewQuery, callback: impl Fn(Self, Option<QueryMatch>));
     fn insert(statement: NewStatement);
 }

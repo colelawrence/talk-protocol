@@ -4,6 +4,13 @@ version = "0.1.0"
 authors = ["Cole Lawrence <colelawr@gmail.com>"]
 edition = "2018"
 
+[lib]
+path = "src/lib/mod.rs"
+
+[[bin]]
+name = "jsonrpc"
+path = "src/jsonrpc.rs"
+
 [dependencies]
 jsonrpc-stdio-server = { git = "https://github.com/paritytech/jsonrpc" }
 serde = "1.0"
@@ -12,3 +19,4 @@ serde_derive = "1.0"
 # but you may be using a different one.
 serde_json = "1.0"
 erased-serde = "0.3"
+imagine = { path = "../imagine" }
